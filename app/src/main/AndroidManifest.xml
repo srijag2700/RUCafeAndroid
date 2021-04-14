@@ -11,27 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RUCafe">
-        <activity android:name=".AllOrdersActivity"></activity>
-        <activity android:name=".ViewOrderActivity" />
-        <activity android:name=".CoffeeActivity" />
-        <activity android:name=".DonutActivity" />
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
 
-        <activity
-            android:name=".DonutsActivity"
-            android:label="@string/title_activity_donuts">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".AllOrdersActivity"
+            android:label="@string/all_orders"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ViewOrderActivity"
+            android:label="@string/view_order"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CoffeeActivity"
+            android:label="@string/order_coffee"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".DonutActivity"
+            android:label="@string/order_donuts"
+            android:parentActivityName=".MainActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

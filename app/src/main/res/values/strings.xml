@@ -7,4 +7,8 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="orderDonutsButton">Order Donuts</string>
+    <string name="order_donuts">Order Donuts</string>
+    <string name="order_coffee">Order Coffee</string>
+    <string name="view_order">View Order</string>
+    <string name="all_orders">All Orders</string>
 </resources>
