@@ -7,24 +7,23 @@ package com.example.rucafe.projectfiles;
  */
 
 public class Donut extends MenuItem {
-    private String type; // yeast, cake, or donut hole
+    //private String type; // yeast, cake, or donut hole
     private String flavor; // the flavor
     private int quantity;
     private double price;
 
     private final static double YEAST_PRICE = 1.39;
-    private final static double CAKE_PRICE = 1.59;
-    private final static double HOLE_PRICE = 0.33;
+    //private final static double CAKE_PRICE = 1.59;
+    //private final static double HOLE_PRICE = 0.33;
 
     /**
      * Initializes a new Donut object with with a given type, flavor and quantity.
-     * @param type type of donut
      * @param flavor donut flavor
      * @param quantity amount of donuts
      */
-    public Donut(String type, String flavor, int quantity) {
+    public Donut(String flavor, int quantity) {
         super();
-        this.type = type;
+        //this.type = type;
         this.flavor = flavor;
         this.quantity = quantity;
     }
@@ -33,6 +32,7 @@ public class Donut extends MenuItem {
      * Calculates the price of a donut.
      */
     public void itemPrice() {
+        /**
         if (type.equals("Yeast Donut")) {
             price = YEAST_PRICE;
         }
@@ -42,7 +42,8 @@ public class Donut extends MenuItem {
         else {
             price = HOLE_PRICE;
         }
-
+         */
+        price = YEAST_PRICE;
         price *= quantity;
     }
 
@@ -60,6 +61,6 @@ public class Donut extends MenuItem {
      */
     @Override
     public String toString() {
-        return (type + "(" + quantity + "), " + flavor);
+        return ("Donut (" + quantity + "), " + flavor);
     }
 }
