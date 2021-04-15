@@ -1,4 +1,4 @@
-package Project4;
+package com.example.rucafe.projectfiles;
 
 /**
  * This class represents a menu item.
