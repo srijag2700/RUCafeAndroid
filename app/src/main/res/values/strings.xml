@@ -11,4 +11,21 @@
     <string name="order_coffee">Order Coffee</string>
     <string name="view_order">View Order</string>
     <string name="all_orders">All Orders</string>
+    <string name="add_donut">Add Donut</string>
+    <string name="donutFlavorLabel">Flavor</string>
+    <string name="donutQuantityLabel">Quantity</string>
+    <string name="removeDonutButton">Remove</string>
+    <string name="add_to_order_button">Add To Order</string>
+    <string name="donutSubtotalLabel">Subtotal:</string>
+
+    <string-array name="donut_flavors_array">
+        <item>Regular Glazed</item>
+        <item>Chocolate Glazed</item>
+        <item>Oreo</item>
+        <item>Boston Creme</item>
+        <item>Lemon</item>
+        <item>Matcha</item>
+        <item>Powdered Sugar</item>
+        <item>Jelly Filled</item>
+    </string-array>
 </resources>

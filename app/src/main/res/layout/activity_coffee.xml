@@ -85,7 +85,7 @@
         android:layout_height="28dp"
         android:text="Select add-ins:"
         android:textColor="#673AB7"
-        android:textSize="20"
+        android:textSize="20px"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="142dp" />
 
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:text="Select a size:"
         android:textColor="#673AB7"
-        android:textSize="20"
+        android:textSize="20px"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="66dp" />
 
