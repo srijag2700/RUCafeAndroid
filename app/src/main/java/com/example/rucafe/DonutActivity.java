@@ -1,7 +1,9 @@
 package com.example.rucafe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
@@ -72,6 +74,20 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
                 String donutSumString = df.format(donutSum);
                 donutSubtotal.setText(donutSumString);
             }
+        });
+
+        donutList.setOnItemClickListener((parent, view, position, id) -> {
+            AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+            alert.setMessage("Would you like to remove this donut?").setTitle("Remove Donut");
+            alert.setPositiveButton("YES", (dialog, which) ->  {
+                selectedDonutsAdapter.remove((Donut) parent.getItemAtPosition(position));
+                selectedDonutsAdapter.notifyDataSetChanged();
+            });
+            alert.setNegativeButton("NO", (dialog, which) -> {
+
+            });
+            AlertDialog dialog = alert.create();
+            dialog.show();
         });
 
     }
