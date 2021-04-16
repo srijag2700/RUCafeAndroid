@@ -11,120 +11,171 @@
         android:id="@+id/choiceSyrup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Syrup"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="218dp" />
+        android:text="@string/syrup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.319" />
 
     <CheckBox
         android:id="@+id/choiceCream"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cream"
+        android:text="@string/cream"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintVertical_bias="0.248" />
 
     <CheckBox
         android:id="@+id/choiceMilk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Milk"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="266dp" />
+        android:text="@string/milk"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389" />
 
     <CheckBox
         android:id="@+id/choiceCaramel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Caramel"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="314dp" />
+        android:text="@string/caramel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459" />
 
     <CheckBox
         android:id="@+id/choiceWhippedCream"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whipped Cream"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="362dp" />
+        android:text="@string/whipped_cream"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 
     <RadioButton
         android:id="@+id/choiceShort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Short"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:text="@string/short"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136" />
 
     <RadioButton
         android:id="@+id/choiceTall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tall"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:text="@string/tall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136" />
 
     <RadioButton
         android:id="@+id/choiceGrande"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Grande"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:text="@string/grande"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136" />
 
     <RadioButton
         android:id="@+id/choiceVenti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Venti"
-        tools:layout_editor_absoluteX="240dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:text="@string/venti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="153dp"
         android:layout_height="28dp"
-        android:text="Select add-ins:"
+        android:text="@string/select_add_ins"
         android:textColor="#673AB7"
-        android:textSize="20px"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="142dp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select a size:"
+        android:text="@string/select_a_size"
         android:textColor="#673AB7"
-        android:textSize="20px"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="66dp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.097" />
 
     <Spinner
         android:id="@+id/coffeeQuantity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="410dp" />
-
-    <EditText
-        android:id="@+id/coffeeOrders"
-        android:layout_width="264dp"
-        android:layout_height="289dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="442dp" />
+        android:layout_width="246dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
 
     <Button
-        android:id="@+id/placeCoffeeOrder"
+        android:id="@+id/placeCoffeeOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Place Order"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="549dp" />
+        android:layout_marginTop="664dp"
+        android:text="@string/add_to_order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:text="@string/quantity"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

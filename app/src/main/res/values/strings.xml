@@ -17,6 +17,23 @@
     <string name="removeDonutButton">Remove</string>
     <string name="add_to_order_button">Add To Order</string>
     <string name="donutSubtotalLabel">Subtotal:</string>
+    <string name="cream">Cream</string>
+    <string name="milk">Milk</string>
+    <string name="syrup">Syrup</string>
+    <string name="caramel">Caramel</string>
+    <string name="whipped_cream">Whipped Cream</string>
+    <string name="add_to_order">Add to Order</string>
+    <string name="select_add_ins">Select add-ins:</string>
+    <string name="grande">Grande</string>
+    <string name="venti">Venti</string>
+    <string name="select_a_size">Select a size:</string>
+    <string name="short">Short</string>
+    <string name="short">Short</string>
+    <string name="tall">Tall</string>
+    <string name="short">Short</string>
+    <string name="short">Short</string>
+    <string name="quantity">Quantity</string>
+    <string name="short">Short</string>
 
     <string-array name="donut_flavors_array">
         <item>Regular Glazed</item>
