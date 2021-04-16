@@ -3,17 +3,18 @@ package com.example.rucafe;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
+import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rucafe.projectfiles.Donut;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 public class DonutActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Spinner donutFlavorSpinner, donutQuantitySpinner;
-    private Button addToOrderButton;
+    private Button addToSelectedButton, addDonutsToOrderButton;
     private ListView donutList;
     private TextView donutSubtotal;
 
@@ -31,6 +32,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
         setContentView(R.layout.activity_donut);
 
         donutFlavorSpinner = findViewById(R.id.donutFlavors);
@@ -53,8 +55,8 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
 
         donutSubtotal = findViewById(R.id.donutSubtotalAmountLabel);
 
-        addToOrderButton = findViewById(R.id.addDonut);
-        addToOrderButton.setOnClickListener(v -> {
+        addToSelectedButton = findViewById(R.id.addDonut);
+        addToSelectedButton.setOnClickListener(v -> {
             String selectedDonutFlavor = (String) donutFlavorSpinner.getSelectedItem();
             int selectedDonutQuantity = (int) donutQuantitySpinner.getSelectedItem();
             Donut newDonut = new Donut(selectedDonutFlavor, selectedDonutQuantity);
@@ -88,6 +90,25 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             });
             AlertDialog dialog = alert.create();
             dialog.show();
+        });
+
+        addDonutsToOrderButton = findViewById(R.id.placeDonutOrderButton);
+        addDonutsToOrderButton.setOnClickListener(v -> {
+            for (Donut d : selectedDonuts) {
+                CafeVariables.currentOrder.add(d);
+            }
+            selectedDonuts.clear();
+            selectedDonutsAdapter.notifyDataSetChanged();
+
+            Context context = getApplicationContext();
+            String toastText = "Donuts added to order.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, toastText, duration);
+            toast.show();
+
+            Intent intent1 = new Intent(DonutActivity.this, MainActivity.class);
+            startActivity(intent1);
         });
 
     }
