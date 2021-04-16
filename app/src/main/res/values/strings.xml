@@ -34,6 +34,8 @@
     <string name="short">Short</string>
     <string name="quantity">Quantity</string>
     <string name="short">Short</string>
+    <string name="add_coffee">Add Coffee</string>
+    <string name="subtotal">Subtotal</string>
 
     <string-array name="donut_flavors_array">
         <item>Regular Glazed</item>

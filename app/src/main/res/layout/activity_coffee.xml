@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.282" />
 
     <CheckBox
         android:id="@+id/choiceCream"
@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.212" />
 
     <CheckBox
         android:id="@+id/choiceMilk"
@@ -41,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintVertical_bias="0.352" />
 
     <CheckBox
         android:id="@+id/choiceCaramel"
@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintVertical_bias="0.421" />
 
     <CheckBox
         android:id="@+id/choiceWhippedCream"
@@ -65,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <RadioButton
         android:id="@+id/choiceShort"
@@ -74,10 +74,10 @@
         android:text="@string/short"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.103" />
 
     <RadioButton
         android:id="@+id/choiceTall"
@@ -86,10 +86,10 @@
         android:text="@string/tall"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <RadioButton
         android:id="@+id/choiceGrande"
@@ -98,10 +98,10 @@
         android:text="@string/grande"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <RadioButton
         android:id="@+id/choiceVenti"
@@ -110,13 +110,13 @@
         android:text="@string/venti"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/selectAddInsLabel"
         android:layout_width="153dp"
         android:layout_height="28dp"
         android:text="@string/select_add_ins"
@@ -127,10 +127,10 @@
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.167" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/selectSizeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_a_size"
@@ -141,7 +141,7 @@
         app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.066" />
 
     <Spinner
         android:id="@+id/coffeeQuantity"
@@ -149,10 +149,10 @@
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.561" />
 
     <Button
         android:id="@+id/placeCoffeeOrderButton"
@@ -166,16 +166,56 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/coffeeQuantityLabel"
         android:layout_width="100dp"
         android:layout_height="41dp"
         android:text="@string/quantity"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.579" />
+
+    <TextView
+        android:id="@+id/coffeeSubtotalAmountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="328dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/subtotal"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/addCoffee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginBottom="256dp"
+        android:text="@string/add_coffee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/coffeeList"
+        android:layout_width="257dp"
+        android:layout_height="220dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/size"
+        android:layout_width="5dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
