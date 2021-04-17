@@ -67,54 +67,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.491" />
 
-    <RadioButton
-        android:id="@+id/choiceShort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/short"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103" />
-
-    <RadioButton
-        android:id="@+id/choiceTall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tall"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
-
-    <RadioButton
-        android:id="@+id/choiceGrande"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/grande"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
-
-    <RadioButton
-        android:id="@+id/choiceVenti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/venti"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
-
     <TextView
         android:id="@+id/selectAddInsLabel"
         android:layout_width="153dp"
@@ -138,10 +90,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <Spinner
         android:id="@+id/coffeeQuantity"
@@ -209,13 +161,40 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <RadioGroup
-        android:id="@+id/size"
-        android:layout_width="5dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="68dp"
+        android:id="@+id/pickSize"
+        android:layout_width="334dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089">
+
+        <RadioButton
+            android:id="@+id/choiceShort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shortSize" />
+
+        <RadioButton
+            android:id="@+id/choiceTall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tall" />
+
+        <RadioButton
+            android:id="@+id/choiceGrande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/grande" />
+
+        <RadioButton
+            android:id="@+id/choiceVenti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/venti" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

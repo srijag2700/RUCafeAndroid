@@ -38,7 +38,6 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
         setContentView(R.layout.activity_coffee);
 
         coffeeQuantitySpinner = findViewById(R.id.coffeeQuantity);
@@ -48,18 +47,12 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
         ArrayAdapter<Integer> coffeeQuantities = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, quantities);
         coffeeQuantitySpinner.setAdapter(coffeeQuantities);
 
-        coffeeSizeGroup = findViewById(R.id.size);
+        coffeeSizeGroup = findViewById(R.id.pickSize);
         choiceShort = findViewById(R.id.choiceShort);
-        coffeeSizeGroup.addView(choiceShort);
         choiceTall = findViewById(R.id.choiceTall);
-        coffeeSizeGroup.addView(choiceTall);
         choiceGrande = findViewById(R.id.choiceGrande);
-        coffeeSizeGroup.addView(choiceGrande);
         choiceVenti = findViewById(R.id.choiceVenti);
-        coffeeSizeGroup.addView(choiceVenti);
         int selectedSizeID = coffeeSizeGroup.getCheckedRadioButtonId(); // need to do something if no size selected
-        RadioButton selectedSizeButton = (RadioButton) findViewById(selectedSizeID);
-        String selectedSize = (String) selectedSizeButton.getText();
 
         coffeeList = findViewById(R.id.coffeeList);
         ArrayList<Coffee> selectedCoffee = new ArrayList<Coffee>();
@@ -92,6 +85,9 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
 
         addToSelectedButton = findViewById(R.id.addCoffee);
         addToSelectedButton.setOnClickListener(v -> {
+            RadioButton selectedSizeButton = (RadioButton) findViewById(selectedSizeID);
+            String selectedSize = (String) selectedSizeButton.getText();
+
             int selectedCoffeeQuantity = (int) coffeeQuantitySpinner.getSelectedItem();
             Coffee newCoffee = new Coffee(selectedSize, selectedCoffeeQuantity, selectedAddIns);
             selectedCoffee.add(newCoffee);
@@ -141,8 +137,8 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
             Toast toast = Toast.makeText(context, toastText, duration);
             toast.show();
 
-            Intent intent1 = new Intent(CoffeeActivity.this, MainActivity.class);
-            startActivity(intent1);
+            Intent intent = new Intent(CoffeeActivity.this, MainActivity.class);
+            startActivity(intent);
         });
     }
 

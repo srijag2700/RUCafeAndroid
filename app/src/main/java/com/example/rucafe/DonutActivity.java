@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rucafe.projectfiles.Donut;
+import com.example.rucafe.projectfiles.MenuItem;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -32,7 +33,6 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
         setContentView(R.layout.activity_donut);
 
         donutFlavorSpinner = findViewById(R.id.donutFlavors);
@@ -79,8 +79,17 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
         });
 
         donutList.setOnItemClickListener((parent, view, position, id) -> {
+            Context context = getApplicationContext();
+            String toastText = "Tap and hold an item to remove it from your order.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, toastText, duration);
+            toast.show();
+        });
+
+        donutList.setOnItemLongClickListener((parent, view, position, id) -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
-            alert.setMessage("Would you like to remove this donut?").setTitle("Remove Donut");
+            alert.setMessage("Would you like to remove this item from your order?").setTitle("Remove Item");
             alert.setPositiveButton("YES", (dialog, which) ->  {
                 selectedDonutsAdapter.remove((Donut) parent.getItemAtPosition(position));
                 selectedDonutsAdapter.notifyDataSetChanged();
@@ -90,6 +99,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             });
             AlertDialog dialog = alert.create();
             dialog.show();
+            return true;
         });
 
         addDonutsToOrderButton = findViewById(R.id.placeDonutOrderButton);
@@ -107,8 +117,8 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             Toast toast = Toast.makeText(context, toastText, duration);
             toast.show();
 
-            Intent intent1 = new Intent(DonutActivity.this, MainActivity.class);
-            startActivity(intent1);
+            Intent intent = new Intent(DonutActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
     }
