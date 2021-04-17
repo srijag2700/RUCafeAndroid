@@ -54,6 +54,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
         donutList.setAdapter(selectedDonutsAdapter);
 
         donutSubtotal = findViewById(R.id.donutSubtotalAmountLabel);
+        donutSubtotal.setText(R.string.zeroDollars);
 
         addToSelectedButton = findViewById(R.id.addDonut);
         addToSelectedButton.setOnClickListener(v -> {
@@ -104,21 +105,32 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
 
         addDonutsToOrderButton = findViewById(R.id.placeDonutOrderButton);
         addDonutsToOrderButton.setOnClickListener(v -> {
-            for (Donut d : selectedDonuts) {
-                CafeVariables.currentOrder.add(d);
+            if(selectedDonuts.isEmpty()) {
+                Context context = getApplicationContext();
+                String toastText = "You have no donuts selected!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
             }
-            selectedDonuts.clear();
-            selectedDonutsAdapter.notifyDataSetChanged();
 
-            Context context = getApplicationContext();
-            String toastText = "Donuts added to order.";
-            int duration = Toast.LENGTH_SHORT;
+            else {
+                for (Donut d : selectedDonuts) {
+                    CafeVariables.currentOrder.add(d);
+                }
+                selectedDonuts.clear();
+                selectedDonutsAdapter.notifyDataSetChanged();
 
-            Toast toast = Toast.makeText(context, toastText, duration);
-            toast.show();
+                Context context = getApplicationContext();
+                String toastText = "Donuts added to order.";
+                int duration = Toast.LENGTH_SHORT;
 
-            Intent intent = new Intent(DonutActivity.this, MainActivity.class);
-            startActivity(intent);
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
+
+                Intent intent = new Intent(DonutActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
         });
 
     }

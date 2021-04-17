@@ -83,18 +83,29 @@ public class ViewOrderActivity extends AppCompatActivity {
 
         submitOrderButton = findViewById(R.id.placeOrderButton);
         submitOrderButton.setOnClickListener(v -> {
-            CafeVariables.allOrders.add(CafeVariables.currentOrder);
-            CafeVariables.currentOrder = new Order();
+            if(CafeVariables.currentOrder.getOrder().isEmpty()) {
+                Context context = getApplicationContext();
+                String toastText = "Cannot place an empty order!";
+                int duration = Toast.LENGTH_SHORT;
 
-            Context context = getApplicationContext();
-            String toastText = "Order successfully placed!";
-            int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
+            }
 
-            Toast toast = Toast.makeText(context, toastText, duration);
-            toast.show();
+            else {
+                CafeVariables.allOrders.add(CafeVariables.currentOrder);
+                CafeVariables.currentOrder = new Order();
 
-            Intent intent1 = new Intent(ViewOrderActivity.this, MainActivity.class);
-            startActivity(intent1);
+                Context context = getApplicationContext();
+                String toastText = "Order successfully placed!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
+
+                Intent intent1 = new Intent(ViewOrderActivity.this, MainActivity.class);
+                startActivity(intent1);
+            }
         });
 
     }
