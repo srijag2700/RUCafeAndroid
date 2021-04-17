@@ -36,6 +36,9 @@
     <string name="short">Short</string>
     <string name="add_coffee">Add Coffee</string>
     <string name="subtotal">Subtotal</string>
+    <string name="orderTotalLabel">Total:</string>
+    <string name="orderSubtotalLabel">Subtotal:</string>
+    <string name="orderTaxLabel">Tax:</string>
 
     <string-array name="donut_flavors_array">
         <item>Regular Glazed</item>
