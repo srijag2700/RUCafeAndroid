@@ -97,14 +97,14 @@
 
     <Spinner
         android:id="@+id/coffeeQuantity"
-        android:layout_width="246dp"
-        android:layout_height="37dp"
+        android:layout_width="109dp"
+        android:layout_height="38dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561" />
+        app:layout_constraintVertical_bias="0.562" />
 
     <Button
         android:id="@+id/placeCoffeeOrderButton"
@@ -125,17 +125,17 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintVertical_bias="0.565" />
 
     <TextView
         android:id="@+id/coffeeSubtotalAmountLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="328dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/subtotal"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,20 +145,22 @@
         android:id="@+id/addCoffee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="276dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginBottom="296dp"
         android:text="@string/add_coffee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/coffeeList"
-        android:layout_width="257dp"
-        android:layout_height="220dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="64dp"
+        android:layout_width="369dp"
+        android:layout_height="201dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
 
     <RadioGroup
         android:id="@+id/pickSize"

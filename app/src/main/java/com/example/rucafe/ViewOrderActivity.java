@@ -30,7 +30,6 @@ public class ViewOrderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
         setContentView(R.layout.activity_view_order);
 
         currentOrderList = findViewById(R.id.currentOrder);

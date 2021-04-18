@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rucafe.projectfiles.Coffee;
+import com.example.rucafe.projectfiles.Donut;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -52,7 +53,6 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
         choiceTall = findViewById(R.id.choiceTall);
         choiceGrande = findViewById(R.id.choiceGrande);
         choiceVenti = findViewById(R.id.choiceVenti);
-        int selectedSizeID = coffeeSizeGroup.getCheckedRadioButtonId(); // need to do something if no size selected
 
         coffeeList = findViewById(R.id.coffeeList);
         ArrayList<Coffee> selectedCoffee = new ArrayList<Coffee>();
@@ -61,37 +61,48 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
 
         coffeeSubtotal = findViewById(R.id.coffeeSubtotalAmountLabel);
 
-        ArrayList<String> selectedAddIns = new ArrayList<>();
-        cream = findViewById(R.id.choiceCream);
-        if (cream.isChecked()) {
-            selectedAddIns.add("Cream");
-        }
-        syrup = findViewById(R.id.choiceSyrup);
-        if (syrup.isChecked()) {
-            selectedAddIns.add("Syrup");
-        }
-        milk = findViewById(R.id.choiceMilk);
-        if (milk.isChecked()) {
-            selectedAddIns.add("Milk");
-        }
-        caramel = findViewById(R.id.choiceCaramel);
-        if (caramel.isChecked()) {
-            selectedAddIns.add("Caramel");
-        }
-        whippedCream = findViewById(R.id.choiceWhippedCream);
-        if (whippedCream.isChecked()) {
-            selectedAddIns.add("Whipped Cream");
-        }
-
         addToSelectedButton = findViewById(R.id.addCoffee);
         addToSelectedButton.setOnClickListener(v -> {
-            RadioButton selectedSizeButton = findViewById(selectedSizeID);
-            String selectedSize = selectedSizeButton.getText().toString();
+            int selectedSizeID = coffeeSizeGroup.getCheckedRadioButtonId();
+            RadioButton selectedSizeButton = coffeeSizeGroup.findViewById(selectedSizeID);
+            try {
+                String selectedSize = (String) selectedSizeButton.getText();
 
-            int selectedCoffeeQuantity = (int) coffeeQuantitySpinner.getSelectedItem();
-            Coffee newCoffee = new Coffee(selectedSize, selectedCoffeeQuantity, selectedAddIns);
-            selectedCoffee.add(newCoffee);
-            selectedCoffeeAdapter.notifyDataSetChanged();
+                ArrayList<String> selectedAddIns = new ArrayList<>();
+                cream = findViewById(R.id.choiceCream);
+                if (cream.isChecked()) {
+                    selectedAddIns.add("Cream");
+                }
+                syrup = findViewById(R.id.choiceSyrup);
+                if (syrup.isChecked()) {
+                    selectedAddIns.add("Syrup");
+                }
+                milk = findViewById(R.id.choiceMilk);
+                if (milk.isChecked()) {
+                    selectedAddIns.add("Milk");
+                }
+                caramel = findViewById(R.id.choiceCaramel);
+                if (caramel.isChecked()) {
+                    selectedAddIns.add("Caramel");
+                }
+                whippedCream = findViewById(R.id.choiceWhippedCream);
+                if (whippedCream.isChecked()) {
+                    selectedAddIns.add("Whipped Cream");
+                }
+
+                int selectedCoffeeQuantity = (int) coffeeQuantitySpinner.getSelectedItem();
+                Coffee newCoffee = new Coffee(selectedSize, selectedCoffeeQuantity, selectedAddIns);
+                selectedCoffee.add(newCoffee);
+                selectedCoffeeAdapter.notifyDataSetChanged();
+            }
+            catch (NullPointerException e) {
+                Context context = getApplicationContext();
+                String toastText = "Please select a coffee size!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
+            }
         });
 
         selectedCoffeeAdapter.registerDataSetObserver(new DataSetObserver() {
@@ -109,8 +120,17 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         coffeeList.setOnItemClickListener((parent, view, position, id) -> {
+            Context context = getApplicationContext();
+            String toastText = "Tap and hold an item to remove it from your order.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, toastText, duration);
+            toast.show();
+        });
+
+        coffeeList.setOnItemLongClickListener((parent, view, position, id) -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
-            alert.setMessage("Would you like to remove this coffee?").setTitle("Remove Coffee");
+            alert.setMessage("Would you like to remove this item from your order?").setTitle("Remove Item");
             alert.setPositiveButton("YES", (dialog, which) ->  {
                 selectedCoffeeAdapter.remove((Coffee) parent.getItemAtPosition(position));
                 selectedCoffeeAdapter.notifyDataSetChanged();
@@ -120,25 +140,37 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
             });
             AlertDialog dialog = alert.create();
             dialog.show();
+            return true;
         });
 
         addCoffeeToOrderButton = findViewById(R.id.placeCoffeeOrderButton);
         addCoffeeToOrderButton.setOnClickListener(v -> {
-            for (Coffee c : selectedCoffee) {
-                CafeVariables.currentOrder.add(c);
+            if(selectedCoffee.isEmpty()) {
+                Context context = getApplicationContext();
+                String toastText = "You have no coffee selected!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
             }
-            selectedCoffee.clear();
-            selectedCoffeeAdapter.notifyDataSetChanged();
 
-            Context context = getApplicationContext();
-            String toastText = "Coffee added to order.";
-            int duration = Toast.LENGTH_SHORT;
+            else {
+                for (Coffee c : selectedCoffee) {
+                    CafeVariables.currentOrder.add(c);
+                }
+                selectedCoffee.clear();
+                selectedCoffeeAdapter.notifyDataSetChanged();
 
-            Toast toast = Toast.makeText(context, toastText, duration);
-            toast.show();
+                Context context = getApplicationContext();
+                String toastText = "Coffee added to order.";
+                int duration = Toast.LENGTH_SHORT;
 
-            Intent intent = new Intent(CoffeeActivity.this, MainActivity.class);
-            startActivity(intent);
+                Toast toast = Toast.makeText(context, toastText, duration);
+                toast.show();
+
+                Intent intent = new Intent(CoffeeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
         });
     }
 
