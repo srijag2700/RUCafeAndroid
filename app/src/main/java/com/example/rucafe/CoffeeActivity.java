@@ -85,8 +85,8 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
 
         addToSelectedButton = findViewById(R.id.addCoffee);
         addToSelectedButton.setOnClickListener(v -> {
-            RadioButton selectedSizeButton = (RadioButton) findViewById(selectedSizeID);
-            String selectedSize = (String) selectedSizeButton.getText();
+            RadioButton selectedSizeButton = findViewById(selectedSizeID);
+            String selectedSize = selectedSizeButton.getText().toString();
 
             int selectedCoffeeQuantity = (int) coffeeQuantitySpinner.getSelectedItem();
             Coffee newCoffee = new Coffee(selectedSize, selectedCoffeeQuantity, selectedAddIns);
