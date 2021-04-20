@@ -15,11 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.rucafe.projectfiles.Coffee;
 import com.example.rucafe.projectfiles.MenuItem;
 import com.example.rucafe.projectfiles.Order;
 
-import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
