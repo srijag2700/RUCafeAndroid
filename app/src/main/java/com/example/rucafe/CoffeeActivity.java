@@ -59,7 +59,7 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
         ArrayAdapter<Coffee> selectedCoffeeAdapter = new ArrayAdapter<Coffee>(this, android.R.layout.simple_list_item_1, selectedCoffee);
         coffeeList.setAdapter(selectedCoffeeAdapter);
 
-        coffeeSubtotal = findViewById(R.id.coffeeSubtotalAmountLabel);
+        coffeeSubtotal = findViewById(R.id.coffeeSubtotalAmount);
 
         addToSelectedButton = findViewById(R.id.addCoffee);
         addToSelectedButton.setOnClickListener(v -> {
