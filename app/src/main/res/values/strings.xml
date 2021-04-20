@@ -39,6 +39,8 @@
     <string name="zeroDollars">$0.00</string>
     <string name="viewOrderLabel">View Order:</string>
     <string name="cancelThisOrderButton">Cancel This Order</string>
+    <string name="altTextMain">A stock image of a cafe</string>
+    <string name="welcomeText">Welcome to RU Cafe!</string>
 
     <string-array name="donut_flavors_array">
         <item>Regular Glazed</item>
