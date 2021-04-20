@@ -3,6 +3,8 @@ package com.example.rucafe;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rucafe.projectfiles.Coffee;
 import com.example.rucafe.projectfiles.MenuItem;
@@ -70,8 +73,33 @@ public class AllOrdersActivity extends AppCompatActivity {
                 //Order currentOrder = CafeVariables.allOrders.getOrderByOrderNumber((int) orderNumbers.getSelectedItem());
                 CafeVariables.allOrders.remove(CafeVariables.allOrders.getOrderByOrderNumber((int) orderNumbers.getSelectedItem()));
                 //allStoreOrderNumbers.remove(CafeVariables.allOrders.getOrderByOrderNumber((int) orderNumbers.getSelectedItem()).getOrderNumber());
-                allStoreOrderNumbersAdapter.notifyDataSetChanged();
-                orderNumbers.setSelection(0);
+                // it's ok code, you can start working when you feel like it :)
+
+                if (CafeVariables.allOrders.getStore().isEmpty()) {
+                    Context context = getApplicationContext();
+                    String toastText = "All orders have been removed!";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, toastText, duration);
+                    toast.show();
+
+                    Intent intent = new Intent(AllOrdersActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+
+                else {
+                    ArrayList<Integer> newStoreOrderNumbers = new ArrayList<Integer>();
+                    for (Order o : CafeVariables.allOrders.getStore()) {
+                        newStoreOrderNumbers.add(o.getOrderNumber());
+                    }
+                    ArrayAdapter<Integer> newStoreOrderNumbersAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, newStoreOrderNumbers);
+                    orderNumbers.setAdapter(newStoreOrderNumbersAdapter);
+                    orderNumbers.setSelection(0);
+
+                    allStoreOrderNumbersAdapter.notifyDataSetChanged();
+                    orderNumbers.setSelection(0);
+                }
+
             });
             alert.setNegativeButton("NO", (dialog, which) -> {
 
