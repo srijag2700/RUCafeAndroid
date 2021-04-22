@@ -13,8 +13,6 @@ public class Donut extends MenuItem {
     private double price;
 
     private final static double YEAST_PRICE = 1.39;
-    //private final static double CAKE_PRICE = 1.59;
-    //private final static double HOLE_PRICE = 0.33;
 
     /**
      * Initializes a new Donut object with with a given type, flavor and quantity.

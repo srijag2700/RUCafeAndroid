@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rucafe.projectfiles.Coffee;
-import com.example.rucafe.projectfiles.Donut;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
