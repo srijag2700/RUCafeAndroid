@@ -21,6 +21,12 @@ import com.example.rucafe.projectfiles.Order;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * This class represents the activity for the All Orders menu.
+ * It controls the functions of picking an order number and cancelling an entire order.
+ * @author Srija Gottiparthi, Catherine Nguyen
+ */
+
 public class AllOrdersActivity extends AppCompatActivity {
     private ListView currentOrderList;
     private Spinner orderNumbers;

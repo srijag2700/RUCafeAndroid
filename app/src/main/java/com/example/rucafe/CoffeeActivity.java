@@ -25,6 +25,12 @@ import com.example.rucafe.projectfiles.Donut;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * This class represents the activity for the Order Coffee menu.
+ * It controls the functions of picking a coffee size, choosing a quantity, adding and removing coffee, and adding coffee to the current order.
+ * @author Srija Gottiparthi, Catherine Nguyen
+ */
+
 public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Spinner coffeeQuantitySpinner;
     private Button addToSelectedButton, addCoffeeToOrderButton;
@@ -174,11 +180,22 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
         });
     }
 
+    /**
+     * Determines what to do when an item is selected
+     * @param parent the parent
+     * @param view the view
+     * @param position the position of the selected item
+     * @param id the id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         parent.getItemAtPosition(position);
     }
 
+    /**
+     * Determines what to do when nothing is selected
+     * @param parent the parent
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
