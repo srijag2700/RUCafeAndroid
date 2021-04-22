@@ -17,10 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rucafe.projectfiles.Donut;
-import com.example.rucafe.projectfiles.MenuItem;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+/**
+ * This class represents the activity for the Order Donuts menu.
+ * It controls the functions of picking a donut type, picking a donut flavor, choosing a quantity, adding and removing donuts, and adding donuts to the current order.
+ * @author Srija Gottiparthi, Catherine Nguyen
+ */
 
 public class DonutActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Spinner donutFlavorSpinner, donutQuantitySpinner;
@@ -35,6 +40,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
 
+        // initializing all parts
         donutFlavorSpinner = findViewById(R.id.donutFlavors);
         donutFlavorSpinner.setOnItemSelectedListener(this);
 
@@ -56,6 +62,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
         donutSubtotal = findViewById(R.id.donutSubtotalAmountLabel);
         donutSubtotal.setText(R.string.zeroDollars);
 
+        // add to selected donuts button
         addToSelectedButton = findViewById(R.id.addDonut);
         addToSelectedButton.setOnClickListener(v -> {
             String selectedDonutFlavor = (String) donutFlavorSpinner.getSelectedItem();
@@ -65,6 +72,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             selectedDonutsAdapter.notifyDataSetChanged();
         });
 
+        // set dynamic subtotal
         selectedDonutsAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
@@ -79,6 +87,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             }
         });
 
+        // remove donuts reminder
         donutList.setOnItemClickListener((parent, view, position, id) -> {
             Context context = getApplicationContext();
             String toastText = "Tap and hold an item to remove it from your order.";
@@ -88,6 +97,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             toast.show();
         });
 
+        // remove donuts prompt
         donutList.setOnItemLongClickListener((parent, view, position, id) -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
             alert.setMessage("Would you like to remove this item from your order?").setTitle("Remove Item");
@@ -103,6 +113,7 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
             return true;
         });
 
+        // add donuts to order button
         addDonutsToOrderButton = findViewById(R.id.placeDonutOrderButton);
         addDonutsToOrderButton.setOnClickListener(v -> {
             if(selectedDonuts.isEmpty()) {
@@ -135,11 +146,22 @@ public class DonutActivity extends AppCompatActivity implements AdapterView.OnIt
 
     }
 
+    /**
+     * Determines what to do when an item is selected
+     * @param parent the parent
+     * @param view the view
+     * @param position the position of the selected item
+     * @param id the id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         parent.getItemAtPosition(position);
     }
 
+    /**
+     * Determines what to do when nothing is selected
+     * @param parent the parent
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 

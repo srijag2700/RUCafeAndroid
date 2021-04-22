@@ -19,6 +19,12 @@ import com.example.rucafe.projectfiles.Order;
 
 import java.text.DecimalFormat;
 
+/**
+ * This class represents the activity for the View Order menu.
+ * It controls the functions of viewing the items in the current order and their subtotal, tax, and total, removing items from the order, and placing the order.
+ * @author Srija Gottiparthi, Catherine Nguyen
+ */
+
 public class ViewOrderActivity extends AppCompatActivity {
     private ListView currentOrderList;
     private TextView subtotal, tax, total;
@@ -30,6 +36,7 @@ public class ViewOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order);
 
+        // initializing all parts
         currentOrderList = findViewById(R.id.currentOrder);
         ArrayAdapter<MenuItem> currentOrderAdapter = new ArrayAdapter<MenuItem>(this, android.R.layout.simple_list_item_1, CafeVariables.currentOrder.getOrder());
         currentOrderList.setAdapter(currentOrderAdapter);
@@ -43,6 +50,7 @@ public class ViewOrderActivity extends AppCompatActivity {
         total = findViewById(R.id.totalText);
         total.setText(df.format(CafeVariables.currentOrder.getTotal()));
 
+        // remove item reminder
         currentOrderList.setOnItemClickListener((parent, view, position, id) -> {
             Context context = getApplicationContext();
             String toastText = "Tap and hold an item to remove it from your order.";
@@ -52,6 +60,7 @@ public class ViewOrderActivity extends AppCompatActivity {
             toast.show();
         });
 
+        // remove item prompt
         currentOrderList.setOnItemLongClickListener((AdapterView.OnItemLongClickListener) (parent, view, position, id) -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
             alert.setMessage("Would you like to remove this item from your order?").setTitle("Remove Item");
@@ -68,6 +77,7 @@ public class ViewOrderActivity extends AppCompatActivity {
             return true;
         });
 
+        // set subtotal, tax, total
         currentOrderAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
@@ -78,6 +88,7 @@ public class ViewOrderActivity extends AppCompatActivity {
             }
         });
 
+        // submit order button
         submitOrderButton = findViewById(R.id.placeOrderButton);
         submitOrderButton.setOnClickListener(v -> {
             if(CafeVariables.currentOrder.getOrder().isEmpty()) {

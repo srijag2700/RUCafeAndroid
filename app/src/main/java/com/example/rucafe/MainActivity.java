@@ -1,17 +1,18 @@
 package com.example.rucafe;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.rucafe.projectfiles.Donut;
-import com.example.rucafe.projectfiles.Order;
+/**
+ * This class represents the activity for the Main Menu.
+ * It controls the buttons to order donuts, order coffee, view the current order, and view all store orders.
+ * @author Srija Gottiparthi, Catherine Nguyen
+ */
 
 public class MainActivity extends AppCompatActivity {
     private Button donutsButton, coffeeButton, viewButton, allButton;
@@ -21,18 +22,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // order donuts button
         donutsButton = findViewById(R.id.orderDonuts);
         donutsButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, DonutActivity.class);
             startActivity(intent);
         });
 
+        // order coffee button
         coffeeButton = findViewById(R.id.orderCoffee);
         coffeeButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CoffeeActivity.class);
             startActivity(intent);
         });
 
+        // view order button
         viewButton = findViewById(R.id.viewOrder);
         viewButton.setOnClickListener(v -> {
             if(CafeVariables.currentOrder.getOrder().isEmpty()) {
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // all orders button
         allButton = findViewById(R.id.allOrders);
         allButton.setOnClickListener(v -> {
             if(CafeVariables.allOrders.getStore().isEmpty()) {
